@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 // Serve static files from the 'Resources' directory
-app.use(express.static(path.join(__dirname, 'Resources')));
+//app.use(express.static(path.join(__dirname, 'Resources')));
 
 // Serve static files from the main project directory
 app.use(express.static(__dirname));
@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 
 /*************************************
 * DIRECTIONS for Node Express Set Up *
-* -> navigate to CSC-317-climate-change-info-site directory (e.g. cd ...)
+* -> navigate to CSC-317-assignment-6 directory (e.g. cd ...)
 * -> run `npm install express` 
 * -> run node server_node_express.js
 * -> open browser and navigate to http://localhost:3000
