@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
+
+.backgroundImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 100, 0, 0.8);
+  z-index: 1;
+}
+
+.tree {
+  height: 100px; 
+  width: 100px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.source {
+  text-decoration: underline;
+  color: blue; 
+  padding: 0;
+}
+
+.withRightPad { 
+  margin-right: 15%;
+}
+
+.withLeftPad {
+  margin-left: 10%;
+}
+
+.withSmallLeftPad {
+  margin-left: 5%;
+}
+
+.withSmallTopPad {
+  margin-top: 40px;
+}
+
+
+.backgroundImage > * {
+  z-index: 100;
+}
+
+.backgroundImage { 
+  position: relative;
+  min-height: 60vh;
+  background: url(Resources/background.jpg);
+  background-size: cover; 
+  display: flex;
+  background-position: center center;
+}
+
+.container {
+  display: flex;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.fixed { 
+  position: fixed; 
+}
+
+.toFront {
+  z-index: 1000;
+}
+
+.footHeader {
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  background-color: darkgreen;
+  color: white; 
+}
+
+.footHeaderText {
+  color: white;
+}
+
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.underline:hover {
+  color: lightsteelblue;
+}
+
+.social {
+  background-color: green;
+  color: white;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 6px;
+  font-size: 1.1em;
+  border-radius: 20%;
+}
+
+.middle { 
+  margin-top: 15%;
+}
+
+.subtopicI {
+  height: 400px; 
+}
+
+header {
+  position: relative;
+  padding-left: 4rem;
+  color: white;
+  font-size: large;
+}
+
+.content{
+  white-space: nowrap;
+}
+
+
+
+body{
+  background-color: darkgreen;
+  font-family: "NTR", sans-serif; 
+}
+
+.wrapper {
+  text-align: center;
+  margin: auto;
+}
+
+.nav div {
+  height: 5px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 25px;
+}
+
+.nav {
+  width: 40px;
+  display: block;
+  margin-bottom: 1em;
+  float: right;
+}
+
+.login {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:auto;
+  margin-bottom: auto;
+  color: darkgreen;
+  background-color: white;
+  height: 50px;
+  border-radius: 15%; 
+  font-size: 1.5em;
+  padding-top: 5px;
+  padding-bottom: 5px; 
+  padding-left: 10px; 
+  padding-right: 10px;
+}
+
+.login:hover {
+  color: darkgreen;
+  background-color: lightgrey;
+}
+
+.one {
+  width: 40px;
+  float: right;
+}
+
+.two {
+  width: 30px;
+  float: right;
+}
+
+.three {
+  width: 35px;
+  float: right;
+}
+
+.nav:hover div {
+  width: 40px;
+}
+
+h2 {
+  color: white;
+  font-size: 2rem; 
+  margin-left: 40px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+  text-underline-offset: 3px; 
+}
+
+p {
+    color: darkgreen;
+}
+
+.toRight {
+    margin-left: auto;
+}
+
+button:hover {
+    color: black;
+    background-color: gold;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh; 
+}
+
+.box form {
+  margin: 0; 
+}
+
+.box input[type="text"] {
+  font-size: 18px;
+  color: black;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  background: #ececec;
+  border-radius: 5px; 
+}
+
+.box button {
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff; 
+  cursor: pointer;
+  transition: .3s;
+}
