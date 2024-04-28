@@ -11,7 +11,7 @@ let FIFTHFREQ = 0;
 
 //takes in a string and returns an array of words
 function tokenize(inputString) {
-    return inputString.split(' ');
+    return inputString.split(/\s+|\n/);
 }
 
 //takes in an array of words and returns an object with the frequency of each word
@@ -54,11 +54,17 @@ function findMostCommonWords(inputString) {
     // Convert the word count object to an array of [word, count] pairs
     const wordCountArray = Object.entries(wordCounts);
 
-    //Alphabetize the array in increasing order
-    wordCountArray.sort((a, b) => a[0] - b[0]);
-
     // Sort the array by count in descending order
     wordCountArray.sort((a, b) => b[1] - a[1]);
+
+    // Alphabetize the array in increasing order
+    wordCountArray.sort((a, b) => {
+        if (a[1] === b[1]) {
+            return a[0].localeCompare(b[0]);
+        } else {
+            return a[1] - b[1];
+        }
+    });
 
     // Return the top 5 most common words
     const top5 = wordCountArray.slice(0, 5).map(pair => pair[0]); 
@@ -74,13 +80,26 @@ function findMostCommonWords(inputString) {
 //DOMContentLoaded to prevent error on unloaded content
 document.addEventListener('DOMContentLoaded', function() {
     
+    //create h1 element
+    const newH1 = document.createElement('h1');
+    newH1.innerHTML = "Word Frequency Counter";
+
+    //create new div element
+    const newDiv = document.createElement('div');
+    newDiv.style.display = "flex";
+    newDiv.style.flexDirection = "column";
+
     //create textarea
     const textarea = document.createElement('textarea');
     textarea.innerHTML = "Enter text here...";
+    textarea.style.marginLeft = "auto";
+    textarea.style.marginRight = "auto";
 
     //create the table element
     const table = document.createElement('table');
     table.style.color = "lightblue"; 
+    table.style.marginLeft = "auto";
+    table.style.marginRight = "auto";
         //create the table caption
     const tableCaption = document.createElement('caption'); 
     tableCaption.innerHTML = "Top 5 Most Common Words";
@@ -150,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //create submit button
     const submit = document.createElement('button');
     submit.innerHTML = "SUBMIT";
+    submit.style.marginLeft = "auto";
+    submit.style.marginRight = "auto";
     submit.onclick = function(){
         let wordCountArray = findMostCommonWords(textarea.value);
         textarea.value = "";
@@ -176,9 +197,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    //append the textarea and submit button to the vertical container div
+    newDiv.appendChild(textarea);
+    newDiv.appendChild(submit);
+
     //append the textarea and submit button to the root div:
-    document.getElementById("root").appendChild(textarea);
-    document.getElementById("root").appendChild(submit);
+    document.getElementById("root").appendChild(newH1);
+    document.getElementById("root").appendChild(newDiv);
     document.getElementById("root").appendChild(table);
 });
 

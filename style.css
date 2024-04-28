@@ -9,11 +9,28 @@ textarea{
   width: 400px;
   height: 100px;
   margin-top: 18%;
-  margin-left: 35%;
-  margin-right: 30%;
 }
 
 .withLeftPad {
   margin-left: 10%;
 }
 
+h1 {
+  color: darkblue;
+}
+
+button {
+  margin-top: 20px;
+  margin-left: auto;
+  mrgin-right: auto;
+
+  color: white;
+  background-color: darkblue;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+
+button:hover {
+  background-color: blue;
+}
