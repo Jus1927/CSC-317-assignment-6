@@ -54,6 +54,9 @@ function findMostCommonWords(inputString) {
     // Convert the word count object to an array of [word, count] pairs
     const wordCountArray = Object.entries(wordCounts);
 
+    //Alphabetize the array in increasing order
+    wordCountArray.sort((a, b) => a[0] - b[0]);
+
     // Sort the array by count in descending order
     wordCountArray.sort((a, b) => b[1] - a[1]);
 
@@ -164,6 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (wordCountArray.length > i) {
                 allWords[i].innerHTML = wordCountArray[i][0];
                 allFreqs[i].innerHTML = wordCountArray[i][1];
+                allWords[i].style.color = "darkblue"; 
+                allFreqs[i].style.color = "darkblue";
             } else {
                 allWords[i].style.color = "lightblue"; 
                 allFreqs[i].style.color = "lightblue";
