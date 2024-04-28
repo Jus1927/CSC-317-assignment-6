@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //create textarea
     const textarea = document.createElement('textarea');
+    textarea.innerHTML = "Enter text here...";
 
     //create the li element
     const orderedList = document.createElement('ol');
