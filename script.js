@@ -56,7 +56,6 @@ function findMostCommonWords(inputString) {
 
     // Sort the array by count in descending order
     wordCountArray.sort((a, b) => b[1] - a[1]);
-    console.log(wordCountArray);
 
     // Return the top 5 most common words
     const top5 = wordCountArray.slice(0, 5).map(pair => pair[0]); 
@@ -76,50 +75,99 @@ document.addEventListener('DOMContentLoaded', function() {
     const textarea = document.createElement('textarea');
     textarea.innerHTML = "Enter text here...";
 
-    //create the li element
-    const orderedList = document.createElement('ol');
-    orderedList.style.color = "lightblue";
-    const listItem1 = document.createElement('li');
-    listItem1.innerHTML = FIRSTWORD + " : " + FIRSTFREQ;
-    const listItem2 = document.createElement('li');
-    listItem2.innerHTML = SECONDWORD + " : " + SECONDFREQ;
-    const listItem3 = document.createElement('li');
-    listItem3.innerHTML = THIRDWORD + " : " + THIRDFREQ;
-    const listItem4 = document.createElement('li');
-    listItem4.innerHTML = FOURTHWORD + " : " + FOURTHFREQ;
-    const listItem5 = document.createElement('li');
-    listItem5.innerHTML = FIFTHWORD + " : " + FIFTHFREQ;
-    const allListItems = [listItem1, listItem2, listItem3, listItem4, listItem5];
-    orderedList.appendChild(listItem1);
-    orderedList.appendChild(listItem2);
-    orderedList.appendChild(listItem3);
-    orderedList.appendChild(listItem4);
-    orderedList.appendChild(listItem5);
+    //create the table element
+    const table = document.createElement('table');
+        //create the table caption
+    const tableCaption = document.createElement('caption'); 
+    tableCaption.innerHTML = "Top 5 Most Common Words";
+
+        //create the table header
+    const tableHeader = document.createElement('thead');
+    const tableRow0 = document.createElement('tr');
+    const tableHeader1 = document.createElement('th');
+    tableHeader1.innerHTML = "Word";
+    const tableHeader2 = document.createElement('th');
+    tableHeader2.innerHTML = "Frequency";
+    tableHeader.appendChild(tableRow0);
+    tableRow0.appendChild(tableHeader1);
+    tableRow0.appendChild(tableHeader2);
+
+        //create the table body
+    const tableBody = document.createElement('tbody');
+
+            //create the first row
+    const tableRow1 = document.createElement('tr');
+    const tableDataWord1 = document.createElement('td');
+    const tableDataFreq1 = document.createElement('td');
+    tableRow1.appendChild(tableDataWord1);
+    tableRow1.appendChild(tableDataFreq1);
+
+            //create the second row
+    const tableRow2 = document.createElement('tr');
+    const tableDataWord2 = document.createElement('td');
+    const tableDataFreq2 = document.createElement('td');
+    tableRow2.appendChild(tableDataWord2);
+    tableRow2.appendChild(tableDataFreq2);
+
+            //create the third row
+    const tableRow3 = document.createElement('tr');
+    const tableDataWord3 = document.createElement('td');
+    const tableDataFreq3 = document.createElement('td');
+    tableRow3.appendChild(tableDataWord3);
+    tableRow3.appendChild(tableDataFreq3);
+
+            //create the fourth row
+    const tableRow4 = document.createElement('tr');
+    const tableDataWord4 = document.createElement('td');
+    const tableDataFreq4 = document.createElement('td');
+    tableRow4.appendChild(tableDataWord4);
+    tableRow4.appendChild(tableDataFreq4);
+
+            //create the fifth row
+    const tableRow5 = document.createElement('tr');
+    const tableDataWord5 = document.createElement('td');
+    const tableDataFreq5 = document.createElement('td');
+    tableRow5.appendChild(tableDataWord5);
+    tableRow5.appendChild(tableDataFreq5);
+
+    tableBody.appendChild(tableRow1);
+    tableBody.appendChild(tableRow2);
+    tableBody.appendChild(tableRow3);
+    tableBody.appendChild(tableRow4);
+    tableBody.appendChild(tableRow5);
+    table.appendChild(tableCaption);
+    table.appendChild(tableHeader);
+    table.appendChild(tableBody);
+
+    //create an array of all the table data
+    allWords = [tableDataWord1, tableDataWord2, tableDataWord3, tableDataWord4, tableDataWord5];
+    allFreqs = [tableDataFreq1, tableDataFreq2, tableDataFreq3, tableDataFreq4, tableDataFreq5];
 
     //create submit button
     const submit = document.createElement('button');
     submit.innerHTML = "SUBMIT";
     submit.onclick = function(){
         const wordCountArray = findMostCommonWords(textarea.value);
-        orderedList.style.color = "darkblue"; //will make ordered list "appear"
+        table.style.color = "darkblue"; //will make ordered list "appear"
         
 
         //update the list items with the top 5 most common words
         for (let i = 0; i < wordCountArray.length; i++) {
             
             if (wordCountArray.length > i) {
-                allListItems[i].innerHTML = wordCountArray[i][0] + " : " + wordCountArray[i][1];
+                allWords[i].innerHTML = wordCountArray[i][0];
+                allFreqs[i].innerHTML = wordCountArray[i][1];
             } else {
-                allListItems[i].innerHTML = "";
+                allWords[i].innerHTML = "";
+                allFreqs[i].innnerHTML = "";
             }
         }
     }
 
-
     //append the textarea and submit button to the root div:
     document.getElementById("root").appendChild(textarea);
     document.getElementById("root").appendChild(submit);
-    document.getElementById("root").appendChild(orderedList);
+    document.getElementById("root").appendChild(table);
 });
 
 
