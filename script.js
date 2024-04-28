@@ -77,17 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //create the table element
     const table = document.createElement('table');
+    table.style.color = "lightblue"; 
         //create the table caption
     const tableCaption = document.createElement('caption'); 
     tableCaption.innerHTML = "Top 5 Most Common Words";
+    tableCaption.style.color = "lightblue";
 
         //create the table header
     const tableHeader = document.createElement('thead');
     const tableRow0 = document.createElement('tr');
     const tableHeader1 = document.createElement('th');
-    tableHeader1.innerHTML = "Word";
+    
     const tableHeader2 = document.createElement('th');
-    tableHeader2.innerHTML = "Frequency";
     tableHeader.appendChild(tableRow0);
     tableRow0.appendChild(tableHeader1);
     tableRow0.appendChild(tableHeader2);
@@ -135,31 +136,37 @@ document.addEventListener('DOMContentLoaded', function() {
     tableBody.appendChild(tableRow3);
     tableBody.appendChild(tableRow4);
     tableBody.appendChild(tableRow5);
-    table.appendChild(tableCaption);
+    table.appendChild(tableCaption);table.style.color = "darkblue"; 
     table.appendChild(tableHeader);
     table.appendChild(tableBody);
 
     //create an array of all the table data
-    allWords = [tableDataWord1, tableDataWord2, tableDataWord3, tableDataWord4, tableDataWord5];
-    allFreqs = [tableDataFreq1, tableDataFreq2, tableDataFreq3, tableDataFreq4, tableDataFreq5];
+    let allWords = [tableDataWord1, tableDataWord2, tableDataWord3, tableDataWord4, tableDataWord5];
+    let allFreqs = [tableDataFreq1, tableDataFreq2, tableDataFreq3, tableDataFreq4, tableDataFreq5];
 
     //create submit button
     const submit = document.createElement('button');
     submit.innerHTML = "SUBMIT";
     submit.onclick = function(){
-        const wordCountArray = findMostCommonWords(textarea.value);
+        let wordCountArray = findMostCommonWords(textarea.value);
+        textarea.value = "";
         table.style.color = "darkblue"; //will make ordered list "appear"
+        tableCaption.style.color = "darkblue";
+        tableHeader1.innerHTML = "Word Name";
+        tableHeader1.style.color = "darkblue";
+        tableHeader2.innerHTML = "Word Frequency";
+        tableHeader2.style.color = "darkblue";
         
 
-        //update the list items with the top 5 most common words
-        for (let i = 0; i < wordCountArray.length; i++) {
+        //update the table items with the top 5 most common words
+        for (let i = 0; i < 5; i++) {
             
             if (wordCountArray.length > i) {
                 allWords[i].innerHTML = wordCountArray[i][0];
                 allFreqs[i].innerHTML = wordCountArray[i][1];
             } else {
-                allWords[i].innerHTML = "";
-                allFreqs[i].innnerHTML = "";
+                allWords[i].style.color = "lightblue"; 
+                allFreqs[i].style.color = "lightblue";
             }
         }
     }
