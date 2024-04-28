@@ -5,3 +5,11 @@ body{
   font-family: "NTR", sans-serif; 
 }
 
+textarea{
+  width: 400px;
+  height: 100px;
+  margin-top: 18%;
+  margin-left: 35%;
+  margin-right: 30%;
+}
+
